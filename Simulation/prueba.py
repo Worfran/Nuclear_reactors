@@ -2,7 +2,7 @@ import openmoc
 import openmoc.materialize as materialize
 
 # Load cross section data from HDF5 files
-hdf5_materials = materialize.load_from_hdf5(filename='materials-data.h5', directory='Data')[^3^][3]
+hdf5_materials = materialize.load_from_hdf5(filename='materials-data.h5', directory='Data')
 
 # Retrieve materials
 th232 = hdf5_materials['Th-232']
@@ -41,7 +41,7 @@ geometry = openmoc.Geometry()
 geometry.setRootUniverse(root_universe)
 
 # Initialize track generator
-track_generator = openmoc.TrackGenerator(geometry, num_azim=64, azim_spacing=0.05)[^4^][4]
+track_generator = openmoc.TrackGenerator(geometry, num_azim=64, azim_spacing=0.05)
 track_generator.generateTracks()
 
 # Initialize solver
