@@ -1,6 +1,9 @@
 import openmoc
 import openmoc.materialize as materialize
 
+# Define water material properties
+water = openmoc.Material(name='Water')
+
 # Load cross section data from HDF5 files
 hdf5_materials = materialize.load_from_hdf5(filename='materials-data.h5', directory='../Data')
 
@@ -24,7 +27,7 @@ fuel.setFill(th232)
 fuel.addSurface(halfspace=-1, surface=fuel_cylinder)
 
 moderator = openmoc.Cell(name='moderator')
-moderator.setFill(u235)
+moderator.setFill(water)  # Use water as the moderator
 moderator.addSurface(halfspace=1, surface=fuel_cylinder)
 
 # Create a cell to fill the entire geometry
@@ -45,12 +48,10 @@ geometry = openmoc.Geometry()
 geometry.setRootUniverse(root_universe)
 
 # Initialize track generator
-track_generator = openmoc.TrackGenerator(geometry, num_azim=32, azim_spacing=0.2)
+track_generator = openmoc.TrackGenerator(geometry, num_azim=32, azim_spacing=1  )
 track_generator.generateTracks()
 
 # Initialize solver
 solver = openmoc.CPUSolver(track_generator)
-solver.computeEigenvalue()
 
-# Output results
-solver.printTimerReport()
+openmoc.process.store_simulation_state(solver, use_hdf5=True)
