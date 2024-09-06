@@ -40,7 +40,7 @@ bottom = openmc.ZPlane(z0=-1.0, boundary_type = 'reflective')
 top = openmc.ZPlane(z0=1.0, boundary_type = 'reflective')
 
 pitch = 1.6256
-pin_cell_box = openmc.model.(width=pitch, height=pitch)
+pin_cell_box = openmc.model.rectangular_prism(width=pitch, height=pitch)
 
 
 
@@ -176,7 +176,7 @@ ur_inner_water_cell.fill = water
 
 ur_corner_pin_universe = openmc.Universe(cells=[ur_corner_fuel_cell, ur_corner_gap_cell, ur_corner_clad_cell, ur_sleave_cell, ur_inner_water_cell, ur_sleave_water_cell, ur_sleave_ver_water_cell, ur_opposite_water_cell, ur_sleave_hor_water_cell])
 
-ur_corner_pin_universe.plot(width=(2.5, 2.5), basis = 'xy', colors = {ur_corner_fuel_cell: 'orange', ur_corner_gap_cell: 'white', ur_corner_clad_cell: 'grey', ur_sleave_cell:'brown', ur_inner_water_cell: 'blue', ur_sleave_water_cell: 'blue', ur_sleave_ver_water_cell: 'blue', ur_opposite_water_cell: 'blue', ur_sleave_hor_water_cell: 'blue'}).to_ipython_image()
+ur_corner_pin_universe.plot(width=(2.5, 2.5), basis = 'xy', colors = {ur_corner_fuel_cell: 'orange', ur_corner_gap_cell: 'white', ur_corner_clad_cell: 'grey', ur_sleave_cell:'brown', ur_inner_water_cell: 'blue', ur_sleave_water_cell: 'blue', ur_sleave_ver_water_cell: 'blue', ur_opposite_water_cell: 'blue', ur_sleave_hor_water_cell: 'blue'})
 
 ul_corner_fuel_or = openmc.ZCylinder(r=(1.0414/2), name='ul Corner Cell: Fuel OR')
 ul_corner_clad_ir = openmc.ZCylinder(r=(1.06426/2), name='ul Corner Cell: Clad IR')
@@ -225,7 +225,7 @@ ul_inner_water_cell.fill = water
 
 ul_corner_pin_universe = openmc.Universe(cells=[ul_corner_fuel_cell, ul_corner_gap_cell, ul_corner_clad_cell, ul_sleave_cell, ul_inner_water_cell, ul_sleave_water_cell, ul_sleave_ver_water_cell, ul_opposite_water_cell, ul_sleave_hor_water_cell])
 
-ul_corner_pin_universe.plot(width=(2.5, 2.5), basis = 'xy', colors = {ul_corner_fuel_cell: 'orange', ul_corner_gap_cell: 'white', ul_corner_clad_cell: 'grey', ul_sleave_cell:'brown', ul_inner_water_cell: 'blue', ul_sleave_water_cell: 'blue', ul_sleave_ver_water_cell: 'blue', ul_opposite_water_cell: 'blue', ul_sleave_hor_water_cell: 'blue'}).to_ipython_image()
+ul_corner_pin_universe.plot(width=(2.5, 2.5), basis = 'xy', colors = {ul_corner_fuel_cell: 'orange', ul_corner_gap_cell: 'white', ul_corner_clad_cell: 'grey', ul_sleave_cell:'brown', ul_inner_water_cell: 'blue', ul_sleave_water_cell: 'blue', ul_sleave_ver_water_cell: 'blue', ul_opposite_water_cell: 'blue', ul_sleave_hor_water_cell: 'blue'})
 
 ll_corner_fuel_or = openmc.ZCylinder(r=1.0414/2, name='ll Corner Cell: Fuel OR')
 ll_corner_clad_ir = openmc.ZCylinder(r=1.06426/2, name='ll Corner Cell: Clad IR')
@@ -274,7 +274,7 @@ ll_inner_water_cell.fill = water
 
 ll_corner_pin_universe = openmc.Universe(cells=[ll_corner_fuel_cell, ll_corner_gap_cell, ll_corner_clad_cell, ll_sleave_cell, ll_inner_water_cell, ll_sleave_water_cell, ll_sleave_ver_water_cell, ll_opposite_water_cell, ll_sleave_hor_water_cell])
 
-ll_corner_pin_universe.plot(width=(2.5, 2.5), basis = 'xy', colors = {ll_corner_fuel_cell: 'orange', ll_corner_gap_cell: 'white', ll_corner_clad_cell: 'grey', ll_sleave_cell:'brown', ll_inner_water_cell: 'blue', ll_sleave_water_cell: 'blue', ll_sleave_ver_water_cell: 'blue', ll_opposite_water_cell: 'blue', ll_sleave_hor_water_cell: 'blue'}).to_ipython_image()
+ll_corner_pin_universe.plot(width=(2.5, 2.5), basis = 'xy', colors = {ll_corner_fuel_cell: 'orange', ll_corner_gap_cell: 'white', ll_corner_clad_cell: 'grey', ll_sleave_cell:'brown', ll_inner_water_cell: 'blue', ll_sleave_water_cell: 'blue', ll_sleave_ver_water_cell: 'blue', ll_opposite_water_cell: 'blue', ll_sleave_hor_water_cell: 'blue'})
 
 lr_corner_fuel_or = openmc.ZCylinder(r=1.0414/2, name='lr Corner Cell: Fuel OR')
 lr_corner_clad_ir = openmc.ZCylinder(r=1.06426/2, name='lr Corner Cell: Clad IR')
@@ -323,7 +323,7 @@ lr_inner_water_cell.fill = water
 
 lr_corner_pin_universe = openmc.Universe(cells=[lr_corner_fuel_cell, lr_corner_gap_cell, lr_corner_clad_cell, lr_sleave_cell, lr_inner_water_cell, lr_sleave_water_cell, lr_sleave_ver_water_cell, lr_opposite_water_cell, lr_sleave_hor_water_cell])
 
-lr_corner_pin_universe.plot(width=(2.5, 2.5), basis = 'xy', colors = {lr_corner_fuel_cell: 'orange', lr_corner_gap_cell: 'white', lr_corner_clad_cell: 'grey', lr_sleave_cell:'brown', lr_inner_water_cell: 'blue', lr_sleave_water_cell: 'blue', lr_sleave_ver_water_cell: 'blue', lr_opposite_water_cell: 'blue', lr_sleave_hor_water_cell: 'blue'}).to_ipython_image()
+lr_corner_pin_universe.plot(width=(2.5, 2.5), basis = 'xy', colors = {lr_corner_fuel_cell: 'orange', lr_corner_gap_cell: 'white', lr_corner_clad_cell: 'grey', lr_sleave_cell:'brown', lr_inner_water_cell: 'blue', lr_sleave_water_cell: 'blue', lr_sleave_ver_water_cell: 'blue', lr_opposite_water_cell: 'blue', lr_sleave_hor_water_cell: 'blue'})
 
 quarter_pitch = pitch * 8
 
@@ -342,15 +342,15 @@ assembly.universes = [
                       [ll_corner_pin_universe, fuel_pin_universe, fuel_pin_universe, fuel_pin_universe, fuel_pin_universe, fuel_pin_universe, fuel_pin_universe, lr_corner_pin_universe]
 ]
 
-assembly_region = openmc.rectangular_prism(width=quarter_pitch, height=quarter_pitch, origin=(0,0))
+assembly_region = openmc.model.rectangular_prism(width=quarter_pitch, height=quarter_pitch, origin=(0,0))
 assembly_cell = openmc.Cell(name='quarter assembly cell', fill=assembly, region=assembly_region)
 
 assembly_sleave = openmc.Cell(name='quarter assembly sleave')
-assembly_sleave.region = openmc.rectangular_prism(width=quarter_pitch+2*sleave_thickness, height=quarter_pitch+2*sleave_thickness, corner_radius=sleave_inner_radius+sleave_thickness) & ~assembly_cell.region
+assembly_sleave.region = openmc.model.rectangular_prism(width=quarter_pitch+2*sleave_thickness, height=quarter_pitch+2*sleave_thickness, corner_radius=sleave_inner_radius+sleave_thickness) & ~assembly_cell.region
 assembly_sleave.fill = zircaloy
 
 assembly_outer_water = openmc.Cell(name='assembly outer water')
-assembly_outer_water.region = ~assembly_sleave.region & ~assembly_cell.region & openmc.rectangular_prism(width=quarter_pitch+2*sleave_thickness+1, height=quarter_pitch+2*sleave_thickness+1, boundary_type='reflective')
+assembly_outer_water.region = ~assembly_sleave.region & ~assembly_cell.region & openmc.model.rectangular_prism(width=quarter_pitch+2*sleave_thickness+1, height=quarter_pitch+2*sleave_thickness+1, boundary_type='reflective')
 assembly_outer_water.fill = water
 
 quarter_assembly_universe = openmc.Universe(cells=[assembly_cell, assembly_sleave, assembly_outer_water])
@@ -368,3 +368,5 @@ settings.batches = 100
 settings.inactive = 10
 settings.particles = 1000
 settings.export_to_xml()
+
+openmc.run()
