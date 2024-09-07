@@ -1,4 +1,5 @@
 import openmc
+import openmc.deplete as od
 import matplotlib
 
 # Materials definitions
@@ -7,6 +8,7 @@ uo2 = openmc.Material(name='UO2')
 uo2.add_element('U', 1.0, enrichment=1.5)
 uo2.add_element('O', 2.0)
 uo2.set_density('g/cc', 10.0)
+uo2.depletable = True
 
 zircaloy = openmc.Material(name='Zircaloy')
 zircaloy.set_density('g/cm3', 6.55)
@@ -22,12 +24,14 @@ steel.add_element('S', 0.030, percent_type='wo')
 steel.add_element('Cr', 20.0, percent_type='wo')
 steel.add_element('Ni', 11.0, percent_type='wo')
 steel.add_element('Fe', 65.845, percent_type='wo')
+steel.depletable = True
 
 water = openmc.Material(name='Water')
 water.set_density('g/cm3', 0.76)
 water.add_element('H', 2)
 water.add_element('O', 1)
 water.add_s_alpha_beta('c_H_in_H2O')
+water.depletable = True
 
 # Instantiate a Materials collection and export to xml
 materials_file = openmc.Materials([uo2, water, zircaloy, steel])
@@ -367,6 +371,14 @@ settings.source = src
 settings.batches = 100
 settings.inactive = 10
 settings.particles = 1000
+settings.threads = 6
 settings.export_to_xml()
+
+# Create the depletion operator
+model = openmc.Model(geom, settings)
+
+op = od.CoupledOperator(model, normalizarion_mode='source_rate')
+
+integrator = od.PredictorIntegrator(model, timesteps=[30]*10, power=1.0e9)
 
 openmc.run()
