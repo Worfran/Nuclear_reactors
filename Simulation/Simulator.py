@@ -1,6 +1,6 @@
 import openmc
 import openmc.deplete as od
-import matplotlib
+import matplotlib.pyplot as plt
 
 # Materials definitions
 
@@ -34,8 +34,8 @@ water.add_s_alpha_beta('c_H_in_H2O')
 water.depletable = True
 
 # Instantiate a Materials collection and export to xml
-materials_file = openmc.Materials([uo2, water, zircaloy, steel])
-materials_file.export_to_xml()
+materials = openmc.Materials([uo2, water, zircaloy, steel])
+materials.export_to_xml()
 
 
 # Geometry definitions
@@ -78,7 +78,9 @@ fuel_pin_universe = openmc.Universe(cells=[fuel_cell, gap_cell, clad_cell, fwate
 
 fuel_pin_universe.plot(width=(2.5, 2.5), colors = {fuel_cell: 'orange', gap_cell: 'white', clad_cell: 'grey', fwater_cell: 'blue'})
 
-
+# Add the volume calculation and assignment here
+fuel_volume = 3.14159 * (1.0414 / 2)**2 * 2  # Volume of the cylinder (pi * r^2 * height)
+uo2.volume = fuel_volume
 
 # Geometry definitions for the water rod
 
@@ -331,6 +333,15 @@ lr_corner_pin_universe.plot(width=(2.5, 2.5), basis = 'xy', colors = {lr_corner_
 
 quarter_pitch = pitch * 8
 
+water_volume = (pitch**2 - 3.14159 * (1.22682 / 2)**2) * 2  # Volume of the rectangular prism minus the clad volume
+water.volume = water_volume
+
+# Calculate the volume for the Stainless Steel material
+steel_volume = 3.14159 * (1.22682 / 2)**2 * 2  # Example volume calculation
+
+# Assign the volume to the Stainless Steel material
+steel.volume = steel_volume
+
 assembly = openmc.RectLattice(name='Quarter Assembly')
 assembly.pitch = (pitch, pitch)
 assembly.lower_left = [-quarter_pitch/2, -quarter_pitch/2]
@@ -374,11 +385,27 @@ settings.particles = 1000
 settings.threads = 6
 settings.export_to_xml()
 
+# Create the OpenMC model
+model = openmc.Model(geom, materials,settings)
+
+# Path to the depletion chain file
+chain_file = "Data/chain_endfb80_pwr.xml"
+
 # Create the depletion operator
-model = openmc.Model(geom, settings)
+op = od.CoupledOperator(model, normalization_mode='source-rate', chain_file=chain_file)
 
-op = od.CoupledOperator(model, normalizarion_mode='source_rate')
+# Total simulation time in seconds (2 years)
+total_simulation_time = 2 * 365 * 24 * 60 * 60
 
-integrator = od.PredictorIntegrator(model, timesteps=[30]*10, power=1.0e9)
+# Number of steps
+num_steps = 100
 
-openmc.run()
+# Calculate the timestep for each step
+timestep = total_simulation_time / num_steps
+
+# Create the integrator
+integrator = od.PredictorIntegrator(op, timesteps=[timestep]*num_steps, power=1.0e9)
+
+# Run the depletion simulation
+integrator.integrate()
+
