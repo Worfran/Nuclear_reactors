@@ -3,11 +3,18 @@ import matplotlib.pyplot as plt
 import openmc.deplete.results as dr
 import numpy as np
 import seaborn as sns
+from matplotlib.ticker import ScalarFormatter
+from matplotlib.ticker import FuncFormatter
 
 """
 Ploting settings
 """
 sns.set_theme(context='notebook', style='whitegrid', palette='deep', font='sans-serif', font_scale=1, color_codes=True, rc=None)
+# Function to format the y-axis labels
+def scientific_formatter(x, pos):
+    return f'{x:.1e}'
+
+
 # Load the depletion results
 results = dr.Results("depletion_results.h5")
 
@@ -46,12 +53,12 @@ for timei in time_steps_days:
 
     # Calculate the initial total number of nuclei for normalization
     if burnup_index == 0:
-        initial_total_atoms = conc_U235[0] + conc_U238[0] + conc_Pu239[0]
+        initial_C = conc_U235[0] + conc_U238[0]  + conc_Pu239[0]
 
     # Normalize the concentrations with respect to the initial total number of nuclei
-    concentrations_U235_normalized.append(conc_U235[burnup_index] / initial_total_atoms)
-    concentrations_U238_normalized.append(conc_U238[burnup_index] / initial_total_atoms)
-    concentrations_Pu239_normalized.append(conc_Pu239[burnup_index] / initial_total_atoms)
+    concentrations_U235_normalized.append(conc_U235[burnup_index] / initial_C)
+    concentrations_U238_normalized.append(conc_U238[burnup_index] / initial_C)
+    concentrations_Pu239_normalized.append(conc_Pu239[burnup_index] / initial_C)
 
 # Convert lists to numpy arrays for plotting
 concentrations_U235_normalized = np.array(concentrations_U235_normalized)
@@ -79,6 +86,12 @@ axs[2].legend()
 
 # Adjust the spacing between subplots
 plt.tight_layout()
+
+# Set the formatter for the y-axis to use scientific notation
+formatter = FuncFormatter(scientific_formatter)
+
+for ax in axs:
+    ax.yaxis.set_major_formatter(formatter)
 
 # Save the plot
 plt.savefig('Plots/concentration_U02_try1.png', dpi=600)

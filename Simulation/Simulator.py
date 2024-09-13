@@ -381,8 +381,11 @@ settings = openmc.Settings()
 settings.source = src
 settings.batches = 100
 settings.inactive = 10
-settings.particles = 1000
-settings.threads = 6
+#settings.particles = 1000
+settings.threads = 10
+# Set the maximum neutron energy level (in eV)
+settings.energy_mode = 'multi-group'
+settings.energy_max = 20.0e6  # 20 MeV
 settings.export_to_xml()
 
 # Create the OpenMC model
