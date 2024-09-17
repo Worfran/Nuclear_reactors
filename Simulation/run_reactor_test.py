@@ -19,12 +19,8 @@ num_steps = 10
 # Calculate the timestep for each step
 timestep = total_simulation_time / num_steps
 
-# Set the depletion parameters
-op.timesteps = [timestep]*num_steps  # Depletion time steps in days
-op.power = 1.0e9  # Power level in watts
-
 # Create the integrator
-integrator = od.PredictorIntegrator(op)
+integrator = od.PredictorIntegrator(op, timesteps=[timestep]*num_steps, power=1.0e9)
 
 # Run the depletion simulation
 integrator.integrate()
