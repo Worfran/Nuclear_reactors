@@ -26,6 +26,7 @@ def pwr_pin_cell():
     fuel.add_nuclide('U235', 5.5815e-4)
     fuel.add_nuclide('U238', 2.2408e-2)
     fuel.add_nuclide('O16', 4.5829e-2)
+    fuel.depletable = True  # Mark the fuel material as depletable
 
     clad = openmc.Material(name='Zircaloy')
     clad.set_density('g/cm3', 6.55)
@@ -458,7 +459,6 @@ def pwr_assembly():
     clad.add_nuclide('Zr92', 7.2758e-3)
     clad.add_nuclide('Zr94', 7.3734e-3)
     clad.add_nuclide('Zr96', 1.1879e-3)
-    clad.depletable = True
 
 
     hot_water = openmc.Material(name='Hot borated water')
@@ -479,10 +479,9 @@ def pwr_assembly():
 
     # Compute the volume of each material
     fuel_volume = np.pi * fuel_or.r**2
-    clad_volume = np.pi * (clad_or.r**2 - fuel_or.r**2)
+
 
     fuel.volume = fuel_volume
-    clad.volume = clad_volume
 
     # Create boundary planes to surround the geometry
     pitch = 21.42
