@@ -8,7 +8,7 @@ od.pool.USE_MULTIPROCESSING = False
 chain_file = "../../Data/chain_endfb80_pwr.xml"
 
 # Create a depletion operator
-op = od.Operator(pwr.slab_mg(), normalization_mode='source-rate', chain_file=chain_file)
+op = od.Operator(pwr.pwr_assembly(), normalization_mode='source-rate', chain_file=chain_file)
 
 # Total simulation time in seconds (2 years)
 total_simulation_time = 2 * 365 * 24 * 60 * 60

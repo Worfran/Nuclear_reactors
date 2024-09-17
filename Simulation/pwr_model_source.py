@@ -449,6 +449,7 @@ def pwr_assembly():
     fuel.add_nuclide('U235', 5.5815e-4)
     fuel.add_nuclide('U238', 2.2408e-2)
     fuel.add_nuclide('O16', 4.5829e-2)
+    fuel.depletable = True
 
     clad = openmc.Material(name='Cladding')
     clad.set_density('g/cm3', 6.55)
@@ -457,6 +458,8 @@ def pwr_assembly():
     clad.add_nuclide('Zr92', 7.2758e-3)
     clad.add_nuclide('Zr94', 7.3734e-3)
     clad.add_nuclide('Zr96', 1.1879e-3)
+    clad.depletable = True
+
 
     hot_water = openmc.Material(name='Hot borated water')
     hot_water.set_density('g/cm3', 0.740582)
@@ -466,12 +469,20 @@ def pwr_assembly():
     hot_water.add_nuclide('B11', 3.2218e-5)
     hot_water.add_s_alpha_beta('c_H_in_H2O')
 
+
     # Define the materials file.
     model.materials = (fuel, clad, hot_water)
 
     # Instantiate ZCylinder surfaces
     fuel_or = openmc.ZCylinder(x0=0, y0=0, r=0.39218, name='Fuel OR')
     clad_or = openmc.ZCylinder(x0=0, y0=0, r=0.45720, name='Clad OR')
+
+    # Compute the volume of each material
+    fuel_volume = np.pi * fuel_or.r**2
+    clad_volume = np.pi * (clad_or.r**2 - fuel_or.r**2)
+
+    fuel.volume = fuel_volume
+    clad.volume = clad_volume
 
     # Create boundary planes to surround the geometry
     pitch = 21.42
@@ -528,13 +539,6 @@ def pwr_assembly():
         space=openmc.stats.Box([-pitch/2, -pitch/2, -1], [pitch/2, pitch/2, 1]),
         constraints={'fissionable': True}
     )
-
-    plot = openmc.Plot()
-    plot.origin = (0.0, 0.0, 0)
-    plot.width = (21.42, 21.42)
-    plot.pixels = (300, 300)
-    plot.color_by = 'material'
-    model.plots.append(plot)
 
     return model
 
