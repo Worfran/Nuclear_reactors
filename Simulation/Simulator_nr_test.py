@@ -66,7 +66,7 @@ settings.export_to_xml()
 # Create the depletion operator
 model = openmc.Model(geom, settings)
 op = od.CoupledOperator(model, normalization_mode='source_rate', chain_file=chain_file)
-integrator = od.PredictorIntegrator(model, timesteps=[30]*10, power=1.0e9)
+integrator = od.PredictorIntegrator(op, timesteps=[30]*10, power=1.0e9)
 
-# Run the simulation
-openmc.run()
+# Run the depletion simulation
+integrator.integrate()
