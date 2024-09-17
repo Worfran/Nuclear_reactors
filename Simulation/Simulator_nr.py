@@ -42,8 +42,8 @@ uo2.volume = fuel_pin_volume
 water.volume = coolant_channel_volume
 
 # Instantiate a Materials collection and export to xml
-materials_file = openmc.Materials([uo2, water, zircaloy])
-materials_file.export_to_xml()
+materials = openmc.Materials([uo2, water, zircaloy])
+materials.export_to_xml()
 
 # Define geometry
 geom = openmc.Geometry(pwr_assembly)
@@ -58,12 +58,26 @@ settings.batches = 100
 settings.inactive = 10
 settings.particles = 1000
 settings.threads = 6
+settings.energy_max = 20.0e6  # 20 MeV
 settings.export_to_xml()
 
-# Create the depletion operator
-model = openmc.Model(geom, settings)
-op = od.CoupledOperator(model, normalization_mode='source_rate')
-integrator = od.PredictorIntegrator(model, timesteps=[30]*10, power=1.0e9)
+# Create the OpenMC model
+model = openmc.Model(geom, materials,settings)
 
-# Run the simulation
-openmc.run()
+# Create the depletion operator
+op = od.CoupledOperator(model, normalization_mode='source-rate', chain_file=chain_file)
+
+# Total simulation time in seconds (2 years)
+total_simulation_time = 2 * 365 * 24 * 60 * 60
+
+# Number of steps
+num_steps = 100
+
+# Calculate the timestep for each step
+timestep = total_simulation_time / num_steps
+
+# Create the integrator
+integrator = od.PredictorIntegrator(op, timesteps=[timestep]*num_steps, power=1.0e9)
+
+# Run the depletion simulation
+integrator.integrate()
