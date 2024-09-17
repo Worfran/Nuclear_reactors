@@ -1,26 +1,26 @@
 <?xml version='1.0' encoding='utf-8'?>
 <materials>
-  <material depletable="true" id="4" name="UO2" volume="193.15832380703998">
-    <density units="g/cc" value="10.0"/>
-    <nuclide ao="0.00013576082152024383" name="U234"/>
-    <nuclide ao="0.01518893302062858" name="U235"/>
-    <nuclide ao="0.9846057335491291" name="U238"/>
-    <nuclide ao="6.957260872207403e-05" name="U236"/>
-    <nuclide ao="1.9952412" name="O16"/>
-    <nuclide ao="0.000758" name="O17"/>
-    <nuclide ao="0.0040008" name="O18"/>
+  <material depletable="true" id="1" name="Fuel" volume="0.4831931368640985">
+    <density units="g/cm3" value="10.29769"/>
+    <nuclide ao="0.045829" name="O16"/>
+    <nuclide ao="4.4843e-06" name="U234"/>
+    <nuclide ao="0.00055815" name="U235"/>
+    <nuclide ao="0.022408" name="U238"/>
   </material>
-  <material id="5" name="Zircaloy">
+  <material id="2" name="Cladding">
     <density units="g/cm3" value="6.55"/>
-    <nuclide ao="0.0072758" name="Zr90"/>
+    <nuclide ao="0.021827" name="Zr90"/>
+    <nuclide ao="0.00476" name="Zr91"/>
+    <nuclide ao="0.0072758" name="Zr92"/>
+    <nuclide ao="0.0073734" name="Zr94"/>
+    <nuclide ao="0.0011879" name="Zr96"/>
   </material>
-  <material depletable="true" id="6" name="Water" volume="413.6644650239999">
-    <density units="g/cm3" value="0.76"/>
-    <nuclide ao="1.99968852" name="H1"/>
-    <nuclide ao="0.00031148" name="H2"/>
-    <nuclide ao="0.9976206" name="O16"/>
-    <nuclide ao="0.000379" name="O17"/>
-    <nuclide ao="0.0020004" name="O18"/>
+  <material id="3" name="Hot borated water">
+    <density units="g/cm3" value="0.740582"/>
+    <nuclide ao="0.049457" name="H1"/>
+    <nuclide ao="8.0042e-06" name="B10"/>
+    <nuclide ao="3.2218e-05" name="B11"/>
+    <nuclide ao="0.024672" name="O16"/>
     <sab name="c_H_in_H2O"/>
   </material>
 </materials>
