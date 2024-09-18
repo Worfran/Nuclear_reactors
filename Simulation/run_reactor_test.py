@@ -34,5 +34,5 @@ integrator = od.PredictorIntegrator(op, timesteps=[timestep]*num_steps, power=1.
 integrator.integrate()
 
 # Save the results
-results = od.ResultsList.from_hdf5()
+results = od.ResultsList.from_hdf5("depletion_results.h5")
 results.write_hdf5("final_results.h5")
