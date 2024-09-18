@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/hpcfs/home/fisica/fw.garcia/Programacion/Nuclear_reactors/Results/Sruntest/../../Simulation/run_reactor_test.py", line 19, in <module>
+    op = od.Operator(pwr.pwr_assembly(threads=4), normalization_mode='source-rate', chain_file=chain_file)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: pwr_assembly() missing 1 required positional argument: 'fuelElements'

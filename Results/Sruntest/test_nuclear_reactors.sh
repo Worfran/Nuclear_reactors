@@ -7,7 +7,7 @@
 #SBATCH -N 1				#Nodos requeridos, Default=1
 #SBATCH -n 2				#Tasks paralelos, recomendado para MPI, Default=1
 #SBATCH --cpus-per-task=2		#Cores requeridos por task, recomendado para multi-thread, Default=1
-#SBATCH --mem=28G		#Memoria en Mb por CPU, Default=2048
+#SBATCH --mem=32G		#Memoria en Mb por CPU, Default=2048
 #SBATCH --time=10-00:00:00			#Tiempo máximo de corrida, Default=2 horas
 #SBATCH --mail-user=fw.garcia@uniandes.edu.co
 #SBATCH --mail-type=ALL			
