@@ -2,7 +2,7 @@ import pwr_model_source as pwr
 import openmc.deplete as od
 
 #confinguration hcp
-od.pool.USE_MULTIPROCESSING = False
+#od.pool.USE_MULTIPROCESSING = False
 
 #chain file of the simulation should be changed for different fuels (Th232)
 chain_file = "../../Data/chain_endfb80_pwr.xml"

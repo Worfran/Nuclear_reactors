@@ -49,9 +49,6 @@ def pwr_assembly(fuelElements, maxEnergy=8.0e4, threads=1, particles=100):
         fuel.add_nuclide(element, concentration)
     fuel.depletable = True
 
-    
-    #'O16': 4.5829e-2 + 2.0e-3  # Adjusting oxygen-16 concentration
-
     clad = openmc.Material(name='Cladding')
     clad.set_density('g/cm3', 6.55)
     clad.add_nuclide('Zr90', 2.1827e-2)
