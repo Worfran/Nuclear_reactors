@@ -3,13 +3,23 @@ import numpy as np
 import openmc
 import openmc.model
 
-def pwr_assembly():
+def pwr_assembly(maxEnergy=8.0e4, threads=1):
+    
     """Create a PWR assembly model.
 
     This model is a reflected 17x17 fuel assembly from the the `BEAVRS
     <http://crpg.mit.edu/research/beavrs>`_ benchmark. The fuel is 2.4 w/o
     enriched UO2 corresponding to a beginning-of-cycle condition. Note that the
     number of particles/batches is initially set very low for testing purposes.
+
+    Parameters
+    ----------
+    maxEnergy : float, optional
+        The maximum energy of the source particles in electron volts (eV). 
+        Default is 8.0e4 eV.
+        
+    threads : int, optional
+        The number of threads to use for the simulation. Default is 1.
 
     Returns
     -------
@@ -109,6 +119,9 @@ def pwr_assembly():
     model.settings.batches = 10
     model.settings.inactive = 5
     model.settings.particles = 100
+    #settings.particles = 100000
+    model.settings.threads = threads
+    model.settings.energy_max = maxEnergy 
     model.settings.source = openmc.IndependentSource(
         space=openmc.stats.Box([-pitch/2, -pitch/2, -1], [pitch/2, pitch/2, 1]),
         constraints={'fissionable': True}
