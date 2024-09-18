@@ -1,5 +1,5 @@
 Host: nodei-1
-Started at: Wed Sep 18 10:56:28 -05 2024
+Started at: Wed Sep 18 11:08:18 -05 2024
                                 %%%%%%%%%%%%%%%
                            %%%%%%%%%%%%%%%%%%%%%%%%
                         %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -29,7 +29,7 @@ Started at: Wed Sep 18 10:56:28 -05 2024
          License | https://docs.openmc.org/en/latest/license.html
          Version | 0.15.0
         Git SHA1 | 84fb85977f46e162fea8f5a20ea653a3ec62ac24
-       Date/Time | 2024-09-18 10:56:33
+       Date/Time | 2024-09-18 11:08:22
    MPI Processes | 1
   OpenMP Threads | 4
 
@@ -875,3 +875,304 @@ Started at: Wed Sep 18 10:56:28 -05 2024
  /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/W180.h5
  Reading W181 from
  /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/W181.h5
+ Reading W182 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/W182.h5
+ Reading W183 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/W183.h5
+ Reading W184 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/W184.h5
+ Reading W185 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/W185.h5
+ Reading W186 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/W186.h5
+ Reading Re185 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Re185.h5
+ Reading Re186_m1 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Re186_m1.h5
+ Reading Re187 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Re187.h5
+ Reading Os184 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Os184.h5
+ Reading Os185 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Os185.h5
+ Reading Os186 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Os186.h5
+ Reading Os187 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Os187.h5
+ Reading Os188 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Os188.h5
+ Reading Os189 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Os189.h5
+ Reading Os190 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Os190.h5
+ Reading Os191 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Os191.h5
+ Reading Os192 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Os192.h5
+ Reading Ir191 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Ir191.h5
+ Reading Ir192 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Ir192.h5
+ Reading Ir193 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Ir193.h5
+ Reading Ir194_m1 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Ir194_m1.h5
+ Reading Pt190 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Pt190.h5
+ Reading Pt191 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Pt191.h5
+ Reading Pt192 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Pt192.h5
+ Reading Pt193 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Pt193.h5
+ Reading Pt194 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Pt194.h5
+ Reading Pt195 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Pt195.h5
+ Reading Pt196 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Pt196.h5
+ Reading Pt197 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Pt197.h5
+ Reading Pt198 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Pt198.h5
+ Reading Au197 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Au197.h5
+ Reading Hg196 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Hg196.h5
+ Reading Hg197 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Hg197.h5
+ Reading Hg197_m1 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Hg197_m1.h5
+ Reading Hg198 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Hg198.h5
+ Reading Hg199 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Hg199.h5
+ Reading Hg200 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Hg200.h5
+ Reading Hg201 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Hg201.h5
+ Reading Hg202 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Hg202.h5
+ Reading Hg203 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Hg203.h5
+ Reading Hg204 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Hg204.h5
+ Reading Tl203 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Tl203.h5
+ Reading Tl204 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Tl204.h5
+ Reading Tl205 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Tl205.h5
+ Reading Pb204 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Pb204.h5
+ Reading Pb205 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Pb205.h5
+ Reading Pb206 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Pb206.h5
+ Reading Pb207 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Pb207.h5
+ Reading Pb208 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Pb208.h5
+ Reading Bi209 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Bi209.h5
+ Reading Bi210_m1 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Bi210_m1.h5
+ Reading Po208 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Po208.h5
+ Reading Po209 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Po209.h5
+ Reading Po210 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Po210.h5
+ Reading Ra223 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Ra223.h5
+ Reading Ra224 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Ra224.h5
+ Reading Ra225 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Ra225.h5
+ Reading Ra226 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Ra226.h5
+ Reading Ac225 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Ac225.h5
+ Reading Ac226 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Ac226.h5
+ Reading Ac227 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Ac227.h5
+ Reading Th227 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Th227.h5
+ Reading Th228 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Th228.h5
+ Reading Th229 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Th229.h5
+ Reading Th230 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Th230.h5
+ Reading Th231 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Th231.h5
+ Reading Th232 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Th232.h5
+ Reading Th233 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Th233.h5
+ Reading Th234 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Th234.h5
+ Reading Pa229 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Pa229.h5
+ Reading Pa230 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Pa230.h5
+ Reading Pa231 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Pa231.h5
+ Reading Pa232 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Pa232.h5
+ Reading Pa233 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Pa233.h5
+ Reading U230 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/U230.h5
+ Reading U231 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/U231.h5
+ Reading U232 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/U232.h5
+ Reading U233 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/U233.h5
+ Reading U236 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/U236.h5
+ Reading U237 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/U237.h5
+ Reading U239 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/U239.h5
+ Reading U240 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/U240.h5
+ Reading U241 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/U241.h5
+ Reading Np234 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Np234.h5
+ Reading Np235 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Np235.h5
+ Reading Np236 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Np236.h5
+ Reading Np236_m1 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Np236_m1.h5
+ Reading Np237 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Np237.h5
+ Reading Np238 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Np238.h5
+ Reading Np239 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Np239.h5
+ Reading Pu236 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Pu236.h5
+ Reading Pu237 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Pu237.h5
+ Reading Pu238 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Pu238.h5
+ Reading Pu239 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Pu239.h5
+ Reading Pu240 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Pu240.h5
+ Reading Pu241 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Pu241.h5
+ Reading Pu242 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Pu242.h5
+ Reading Pu243 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Pu243.h5
+ Reading Pu244 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Pu244.h5
+ Reading Pu245 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Pu245.h5
+ Reading Pu246 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Pu246.h5
+ Reading Am240 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Am240.h5
+ Reading Am241 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Am241.h5
+ Reading Am242 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Am242.h5
+ Reading Am242_m1 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Am242_m1.h5
+ Reading Am243 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Am243.h5
+ Reading Am244 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Am244.h5
+ Reading Am244_m1 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Am244_m1.h5
+ Reading Cm240 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Cm240.h5
+ Reading Cm241 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Cm241.h5
+ Reading Cm242 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Cm242.h5
+ Reading Cm243 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Cm243.h5
+ Reading Cm244 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Cm244.h5
+ Reading Cm245 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Cm245.h5
+ Reading Cm246 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Cm246.h5
+ Reading Cm247 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Cm247.h5
+ Reading Cm248 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Cm248.h5
+ Reading Cm249 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Cm249.h5
+ Reading Cm250 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Cm250.h5
+ Reading Bk245 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Bk245.h5
+ Reading Bk246 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Bk246.h5
+ Reading Bk247 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Bk247.h5
+ Reading Bk248 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Bk248.h5
+ Reading Bk249 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Bk249.h5
+ Reading Bk250 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Bk250.h5
+ Reading Cf246 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Cf246.h5
+ Reading Cf247 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Cf247.h5
+ Reading Cf248 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Cf248.h5
+ Reading Cf249 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Cf249.h5
+ Reading Cf250 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Cf250.h5
+ Reading Cf251 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Cf251.h5
+ Reading Cf252 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Cf252.h5
+ Reading Cf253 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Cf253.h5
+ Reading Cf254 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Cf254.h5
+ Reading Es251 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Es251.h5
+ Reading Es252 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Es252.h5
+ Reading Es253 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Es253.h5
+ Reading Es254 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Es254.h5
+ Reading Es254_m1 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Es254_m1.h5
+ Reading Es255 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Es255.h5
+ Reading Fm255 from
+ /hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/neutron/Fm255.h5
+ Maximum neutron transport energy: 20000000 eV for Zr90
+ Initializing source particles...
+
+ ====================>     K EIGENVALUE SIMULATION     <====================
+
+  Bat./Gen.      k            Average k
+  =========   ========   ====================
+        1/1    1.26564
+        2/1    1.12641
+        3/1    1.41710
+        4/1    1.08282
+        5/1    1.13975
+        6/1    1.32791
+        7/1    1.21526    1.27158 +/- 0.05632
+        8/1    1.18012    1.24109 +/- 0.04458
+        9/1    1.18175    1.22626 +/- 0.03484
+       10/1    1.04168    1.18934 +/- 0.04573
+ Creating state point statepoint.10.h5...
+Finished at: Wed Sep 18 11:11:11 -05 2024

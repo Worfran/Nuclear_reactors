@@ -165,3 +165,10 @@
           1200K
  WARNING: Negative value(s) found on probability table for nuclide Hf182 at
           2500K
+ WARNING: Negative value(s) found on probability table for nuclide Cf250 at 250K
+ WARNING: Negative value(s) found on probability table for nuclide Cf250 at 294K
+ WARNING: Negative value(s) found on probability table for nuclide Cf250 at 900K
+ WARNING: Negative value(s) found on probability table for nuclide Cf250 at
+          1200K
+[nodei-1:2516637:0:2516637] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x3ff00000001)
+/var/spool/slurmd/job242594/slurm_script: line 37: 2516637 Segmentation fault      (core dumped) python ../../Simulation/run_reactor_test.py
