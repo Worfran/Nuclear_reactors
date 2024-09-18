@@ -3,8 +3,11 @@ import numpy as np
 import openmc
 import openmc.model
 
+
+
 def pwr_assembly(fuelElements, maxEnergy=8.0e4, threads=1, particles=100):
-    """Create a PWR assembly model.
+    """
+    Create a PWR assembly model.
 
     This model is a reflected 17x17 fuel assembly from the the `BEAVRS
     <http://crpg.mit.edu/research/beavrs>`_ benchmark. The fuel is 2.4 w/o
@@ -29,6 +32,11 @@ def pwr_assembly(fuelElements, maxEnergy=8.0e4, threads=1, particles=100):
     -------
     model : openmc.model.Model
         A PWR assembly model
+    
+    Notes
+    -----
+    This code is based on the example provided in the OpenMC documentation:
+    https://docs.openmc.org/en/stable/_modules/openmc/examples.html#pwr_assembly
 
     """
 
