@@ -2,7 +2,7 @@ import pwr_model_source as pwr
 import openmc.deplete as od
 
 #confinguration hcp
-#od.pool.USE_MULTIPROCESSING = False
+od.pool.USE_MULTIPROCESSING = False
 
 #chain file of the simulation should be changed for different fuels (Th232)
 chain_file = "../../Data/chain_endfb80_pwr.xml"
@@ -16,7 +16,7 @@ fuelElement ={
 }
 
 # Create a depletion operator
-op = od.CoupledOperator(pwr.pwr_assembly(fuelElements=fuelElement, threads=4), normalization_mode='source-rate', chain_file=chain_file)
+op = od.CoupledOperator(pwr.pwr_assembly(fuelElements=fuelElement), normalization_mode='source-rate', chain_file=chain_file)
 
 # Total simulation time in seconds ( 10 minutes )
 total_simulation_time = 600
