@@ -33,7 +33,7 @@ echo "Started at: $(/bin/date)" # info
 
 # código a correr
 #mpiexec python ../../Simulation/Simulator_test.py 
-python ../../Simulation/Simulator_nr_test.py
+python ../../Simulation/run_reactor_test.py
 
 echo "Finished at: $(/bin/date)" # info
 
