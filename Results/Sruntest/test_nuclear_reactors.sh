@@ -5,13 +5,14 @@
 #SBATCH --job-name=NuclearReactostest		#Nombre del job
 #SBATCH -p medium			#Cola a usar, Default=short (Ver colas y límites en /hpcfs/shared/README/partitions.txt)
 #SBATCH -N 1				#Nodos requeridos, Default=1
-#SBATCH -n 1				#Tasks paralelos, recomendado para MPI, Default=1
-#SBATCH --cpus-per-task=1		#Cores requeridos por task, recomendado para multi-thread, Default=1
-#SBATCH --mem=20000		#Memoria en Mb por CPU, Default=2048
-#SBATCH --time=10-00:00			#Tiempo máximo de corrida, Default=2 horas
+#SBATCH -n 2				#Tasks paralelos, recomendado para MPI, Default=1
+#SBATCH --cpus-per-task=2		#Cores requeridos por task, recomendado para multi-thread, Default=1
+#SBATCH --mem=28G		#Memoria en Mb por CPU, Default=2048
+#SBATCH --time=10-00:00:00			#Tiempo máximo de corrida, Default=2 horas
 #SBATCH --mail-user=fw.garcia@uniandes.edu.co
 #SBATCH --mail-type=ALL			
 #SBATCH -o test_nr.o%j			#Nombre de archivo de salida
+#SBATCH -e test_nr_error.e%j			#Nombre de archivo de salida
 #
 ########################################################################################
 

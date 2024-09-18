@@ -8,7 +8,7 @@ import openmc.deplete as od
 chain_file = "../../Data/chain_endfb80_pwr.xml"
 
 # Create a depletion operator
-op = od.Operator(pwr.pwr_assembly(), normalization_mode='source-rate', chain_file=chain_file)
+op = od.Operator(pwr.pwr_assembly(threads=4), normalization_mode='source-rate', chain_file=chain_file)
 
 # Total simulation time in seconds ( 10 minutes )
 total_simulation_time = 600
