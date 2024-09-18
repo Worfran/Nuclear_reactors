@@ -3,8 +3,7 @@ import numpy as np
 import openmc
 import openmc.model
 
-def pwr_assembly(maxEnergy=8.0e4, threads=1):
-    
+def pwr_assembly(fuelElements, maxEnergy=8.0e4, threads=1, particles=100):
     """Create a PWR assembly model.
 
     This model is a reflected 17x17 fuel assembly from the the `BEAVRS
@@ -21,6 +20,11 @@ def pwr_assembly(maxEnergy=8.0e4, threads=1):
     threads : int, optional
         The number of threads to use for the simulation. Default is 1.
 
+    particles : int, optional
+        The number of particles to simulate. This parameter determines the number
+        of source particles that will be used in the Monte Carlo simulation. 
+        Default is 100.
+
     Returns
     -------
     model : openmc.model.Model
@@ -33,11 +37,12 @@ def pwr_assembly(maxEnergy=8.0e4, threads=1):
     # Define materials.
     fuel = openmc.Material(name='Fuel')
     fuel.set_density('g/cm3', 10.29769)
-    fuel.add_nuclide('U234', 4.4843e-6)
-    fuel.add_nuclide('U235', 5.5815e-4)
-    fuel.add_nuclide('U238', 2.2408e-2)
-    fuel.add_nuclide('O16', 4.5829e-2)
+    for element, concentration in fuelElements.items():
+        fuel.add_nuclide(element, concentration)
     fuel.depletable = True
+
+    
+    #'O16': 4.5829e-2 + 2.0e-3  # Adjusting oxygen-16 concentration
 
     clad = openmc.Material(name='Cladding')
     clad.set_density('g/cm3', 6.55)
@@ -118,8 +123,7 @@ def pwr_assembly(maxEnergy=8.0e4, threads=1):
 
     model.settings.batches = 10
     model.settings.inactive = 5
-    model.settings.particles = 100
-    #settings.particles = 100000
+    model.settings.particles = particles
     model.settings.threads = threads
     model.settings.energy_max = maxEnergy 
     model.settings.source = openmc.IndependentSource(
