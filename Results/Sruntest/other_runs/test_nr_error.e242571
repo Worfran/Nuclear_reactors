@@ -1,0 +1,10 @@
+/hpcfs/apps/miniforge3/envs/openmc-env/lib/python3.12/site-packages/openmc/deplete/coupled_operator.py:563: FutureWarning: The Operator(...) class has been renamed and will be removed in a future version of OpenMC. Use CoupledOperator(...) instead.
+  warn(
+Traceback (most recent call last):
+  File "/hpcfs/home/fisica/fw.garcia/Programacion/Nuclear_reactors/Results/Sruntest/../../Simulation/run_reactor_test.py", line 11, in <module>
+    op = od.Operator(pwr.pwr_assembly(threads=4), normalization_mode='source-rate', ehain_file=chain_file)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/hpcfs/apps/miniforge3/envs/openmc-env/lib/python3.12/site-packages/openmc/deplete/coupled_operator.py", line 569, in Operator
+    return CoupledOperator(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: CoupledOperator.__init__() got an unexpected keyword argument 'ehain_file'

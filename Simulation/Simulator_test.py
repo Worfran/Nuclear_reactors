@@ -2,6 +2,10 @@ import openmc
 import openmc.deplete as od
 import matplotlib.pyplot as plt
 
+#confinguration hcp
+od.pool.USE_MULTIPROCESSING = False
+
+
 # Materials definitions
 
 uo2 = openmc.Material(name='UO2')
@@ -381,38 +385,21 @@ settings = openmc.Settings()
 settings.source = src
 settings.batches = 100
 settings.inactive = 10
-<<<<<<< HEAD:Simulation/simulator_v1.py
-settings.particles = 10000
-settings.threads = 10
-# Set the maximum neutron energy level (in eV)
-#settings.energy_mode = 'multi-group'
-=======
-#settings.particles = 100000
-settings.threads = 30
->>>>>>> 6950a84039d8ba40f60fcfd16ca1879232d6cc76:Simulation/Simulator.py
-settings.energy_max = 20.0e6  # 20 MeV
+settings.threads=8
+settings.particles = 1000
 settings.export_to_xml()
 
 # Create the OpenMC model
 model = openmc.Model(geom, materials,settings)
 
 # Path to the depletion chain file
-chain_file = "Data/chain_endfb80_pwr.xml"
+chain_file = "../../Data/chain_endfb80_pwr.xml"
 
 # Create the depletion operator
 op = od.CoupledOperator(model, normalization_mode='source-rate', chain_file=chain_file)
 
-# Total simulation time in seconds (2 years)
-total_simulation_time = 2 * 365 * 24 * 60 * 60
-
-# Number of steps
-num_steps = 100
-
-# Calculate the timestep for each step
-timestep = total_simulation_time / num_steps
-
 # Create the integrator
-integrator = od.PredictorIntegrator(op, timesteps=[timestep]*num_steps, power=1.0e9)
+integrator = od.PredictorIntegrator(op, timesteps=[60]*10, power=1.0e9)
 
 # Run the depletion simulation
 integrator.integrate()
