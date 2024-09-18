@@ -94,4 +94,4 @@ for ax in axs:
     ax.yaxis.set_major_formatter(formatter)
 
 # Save the plot
-plt.savefig('Plots/concentration_U02_try1.png', dpi=600)
+plt.savefig('Plots/concentration_U02_try2.png', dpi=600)
