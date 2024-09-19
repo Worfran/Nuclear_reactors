@@ -1,33 +1,12 @@
-#%%
-import pandas as pd
-import seaborn as sns
-import matplotlib.pyplot as plt
+import openmc
+import openmc.deplete
+import openmc.deplete.pool
 
-#%%
+# Open the depletion results file
+results_file = openmc.deplete.Results('depletion_results.h5')
 
-"""
-Settings for the plots
-"""
-sns.set_theme(context='notebook', style='whitegrid', palette='deep', font='sans-serif', font_scale=1, color_codes=True, rc=None)
+# Get the materials from the results file
+materials = results_file.export_to_materials(0)
 
-
-#%%
-# Read the data from the file
-data = pd.read_csv("../Data/U233.txt", delimiter=",")
-
-
-#%%
-# Plot the cross sections
-
-sns.lineplot(data=data, x="Energy(eV)", y="sigma", color="black")
-plt.xscale("log")
-plt.yscale("log")
-
-# Add labels and title
-plt.xlabel("Incident neutron Energy (eV)")
-plt.ylabel("Cross Section (Barns)")
-plt.title("U-233 Fission Cross Section")
-
-# Show the plot
-plt.show()
-# %%
+for material in materials:
+    print(material.name)
