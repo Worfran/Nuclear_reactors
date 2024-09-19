@@ -381,15 +381,11 @@ settings = openmc.Settings()
 settings.source = src
 settings.batches = 100
 settings.inactive = 10
-<<<<<<< HEAD:Simulation/simulator_v1.py
 settings.particles = 10000
 settings.threads = 10
 # Set the maximum neutron energy level (in eV)
 #settings.energy_mode = 'multi-group'
-=======
 #settings.particles = 100000
-settings.threads = 30
->>>>>>> 6950a84039d8ba40f60fcfd16ca1879232d6cc76:Simulation/Simulator.py
 settings.energy_max = 20.0e6  # 20 MeV
 settings.export_to_xml()
 

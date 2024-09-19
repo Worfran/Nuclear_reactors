@@ -39,7 +39,7 @@ for timei in time_steps_days:
     # Find the fuel material (UO2)
     fuel_material = None
     for material in materials:
-        if material.name == 'UO2':
+        if material.name == 'Fuel':
             fuel_material = material
             break
 
@@ -53,17 +53,18 @@ for timei in time_steps_days:
 
     # Calculate the initial total number of nuclei for normalization
     if burnup_index == 0:
-        initial_C = conc_U235[0] + conc_U238[0]  + conc_Pu239[0]
+        #initial_U235,initial_U238, initial_Pu239 = conc_U235[0], conc_U238[0], 1
+        initial_C = conc_U235[0] + conc_U238[0] + conc_Pu239[0]
 
     # Normalize the concentrations with respect to the initial total number of nuclei
-    concentrations_U235_normalized.append(conc_U235[burnup_index] / initial_C)
+    concentrations_U235_normalized.append(conc_U235[burnup_index] / initial_C) 
     concentrations_U238_normalized.append(conc_U238[burnup_index] / initial_C)
     concentrations_Pu239_normalized.append(conc_Pu239[burnup_index] / initial_C)
 
 # Convert lists to numpy arrays for plotting
-concentrations_U235_normalized = np.array(concentrations_U235_normalized)
-concentrations_U238_normalized = np.array(concentrations_U238_normalized)
-concentrations_Pu239_normalized = np.array(concentrations_Pu239_normalized)
+concentrations_U235_normalized = 100 * (np.array(concentrations_U235_normalized) - 1)
+concentrations_U238_normalized = 100 * (np.array(concentrations_U238_normalized) - 1)
+concentrations_Pu239_normalized = 100 * (np.array(concentrations_Pu239_normalized) - 1)
 
 # Create a figure with three subplots
 fig, axs = plt.subplots(3, 1, figsize=(8, 12), sharex=True)
@@ -86,12 +87,6 @@ axs[2].legend()
 
 # Adjust the spacing between subplots
 plt.tight_layout()
-
-# Set the formatter for the y-axis to use scientific notation
-formatter = FuncFormatter(scientific_formatter)
-
-for ax in axs:
-    ax.yaxis.set_major_formatter(formatter)
 
 # Save the plot
 plt.savefig('Plots/concentration_U02_try2.png', dpi=600)

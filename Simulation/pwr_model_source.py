@@ -126,7 +126,7 @@ def pwr_assembly(fuelElements, maxEnergy=8.0e4, threads=1, particles=100):
     model.geometry.root_universe = openmc.Universe(name='root universe')
     model.geometry.root_universe.add_cell(root_cell)
 
-    model.settings.batches = 10
+    model.settings.batches = 100
     model.settings.inactive = 5
     model.settings.particles = particles
     model.settings.threads = threads

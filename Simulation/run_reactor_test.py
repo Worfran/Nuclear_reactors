@@ -5,7 +5,7 @@ import openmc.deplete as od
 #od.pool.USE_MULTIPROCESSING = False
 
 #chain file of the simulation should be changed for different fuels (Th232)
-chain_file = "../../Data/chain_endfb80_pwr.xml"
+chain_file = "Data/chain_endfb80_pwr.xml"
 
 #materials
 fuelElement ={
@@ -35,4 +35,4 @@ integrator.integrate()
 
 # Save the results
 results = od.ResultsList.from_hdf5("depletion_results.h5")
-results.write_hdf5("final_results.h5")
+
