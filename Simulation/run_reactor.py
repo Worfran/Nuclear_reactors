@@ -15,8 +15,8 @@ fuelElement ={
 # Create a depletion operator
 op = od.CoupledOperator(pwr.pwr_assembly(fuelElements=fuelElement), normalization_mode='source-rate', chain_file=chain_file)
 
-# Total simulation time in seconds (2 years)
-total_simulation_time = 2 * 365 * 24 * 60 * 60
+# Total simulation time in seconds (10 minutes)
+total_simulation_time = 6 * 30.4167 * 24 * 60  * 60 #Moths, Avarage number of days in a month, hours, minutes, seconds
 
 # Number of steps
 num_steps = 100

@@ -11,7 +11,7 @@ size = comm.Get_size()
 od.pool.USE_MULTIPROCESSING = False
 
 # Chain file of the simulation should be changed for different fuels (Th232)
-chain_file = "../../Data/chain_endfb80_pwr.xml"
+chain_file = "Data/chain_endfb80_pwr.xml"
 
 # Materials
 fuelElement = {
@@ -25,7 +25,7 @@ fuelElement = {
 op = od.CoupledOperator(pwr.pwr_assembly(fuelElements=fuelElement), normalization_mode='source-rate', chain_file=chain_file)
 
 # Total simulation time in seconds (10 minutes)
-total_simulation_time = 600
+total_simulation_time = 600 #Moths, Avarage number of days in a month, hours, minutes, seconds
 
 # Number of steps
 num_steps = 10
@@ -36,13 +36,19 @@ timestep = total_simulation_time / num_steps
 # Create the integrator
 integrator = od.PredictorIntegrator(op, timesteps=[timestep] * num_steps, power=1.0e9)
 
-# Run the depletion simulation
-if rank == 0:
-    integrator.integrate()
+# Run the depletion simulationP
+try:
+    if rank == 0:
+        integrator.integrate()
+except Exception as e:
+    print(f"Rank {rank} encountered an error during integration: {e}")
 
 # Save the results
-if rank == 0:
-    results = od.ResultsList.from_hdf5("depletion_results.h5")
+try:
+    if rank == 0:
+        results = od.ResultsList.from_hdf5("depletion_results.h5")
+except Exception as e:
+    print(f"Rank {rank} encountered an error while saving results: {e}")
 
 # Finalize MPI
 MPI.Finalize()
