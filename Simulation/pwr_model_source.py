@@ -5,7 +5,7 @@ import openmc.model
 
 
 
-def pwr_assembly(fuelElements, maxEnergy=8.0e4, threads=1, particles=100):
+def pwr_assembly(fuelElements, maxEnergy=20e6, threads=1, particles=1000):
     """
     Create a PWR assembly model.
 
@@ -18,7 +18,7 @@ def pwr_assembly(fuelElements, maxEnergy=8.0e4, threads=1, particles=100):
     ----------
     maxEnergy : float, optional
         The maximum energy of the source particles in electron volts (eV). 
-        Default is 8.0e4 eV.
+        Default is 20e6 eV.
         
     threads : int, optional
         The number of threads to use for the simulation. Default is 1.
@@ -74,8 +74,6 @@ def pwr_assembly(fuelElements, maxEnergy=8.0e4, threads=1, particles=100):
 
     # Compute the volume of each material
     fuel_volume = np.pi * fuel_or.r**2
-
-
     fuel.volume = fuel_volume
 
     # Create boundary planes to surround the geometry
