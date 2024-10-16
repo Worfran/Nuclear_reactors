@@ -72,9 +72,14 @@ for nuc in initial_nuclei:
 # Create a figure with subplots for each nuclide in nuclide_to_plot
 fig, axs = plt.subplots(len(nuclide_to_plot), 1, figsize=(8, 4 * len(nuclide_to_plot)), sharex=True)
 
+
+# Define the list of styles
+styles = ['dotted', '--', '-.', 'steps', '-' ]
+j = len(styles)
+
 # Plot the normalized concentrations in each subplot
 for i, nuc in enumerate(nuclide_to_plot):
-    axs[i].plot(time_steps_months, concentrations_normalized[nuc], label=nuc, color='black', linestyle='-')
+    axs[i].plot(time_steps_months, concentrations_normalized[nuc], label=nuc, color='black', linestyle=styles[i % j])
     axs[i].set_ylabel("Normalized Concentration [%]")
     axs[i].legend()
 
