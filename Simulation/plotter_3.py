@@ -1,14 +1,11 @@
-import openmc
 import matplotlib.pyplot as plt
 import openmc.deplete.results as dr
 import numpy as np
 import seaborn as sns
 
-from matplotlib.ticker import ScalarFormatter
-from matplotlib.ticker import FuncFormatter
-
 """
-Ploting settings
+Ploting settings 1 
+"""
 """
 sns.set_theme(
     context='notebook',
@@ -19,6 +16,31 @@ sns.set_theme(
     color_codes=True,
     rc={'grid.color': '0.5', 'grid.linewidth': 1.2}  # Adjust the grid color and width
 )
+"""
+
+"""
+Ploting settings 2
+"""
+sns.set_theme(
+    context='paper',  # Paper context for academic styling
+    style='whitegrid',  # Whitegrid adds a grid to the background
+    palette='deep',  # High-contrast color palette
+    font='serif',  # Serif font for formal appearance
+    font_scale=1.2,  # Larger font size for readability
+    color_codes=True,  # Enable shorthand color codes
+    rc={
+        'grid.color': '0.85',  # Lighter grid color for subtlety
+        'grid.linewidth': 0.6,  # Thinner gridlines for minimalism
+        'axes.edgecolor': '0.2',  # Darker edge color for emphasis
+        'axes.linewidth': 1.5,  # Slightly thicker axes
+        'axes.labelsize': 14,  # Larger label size for readability
+        'xtick.labelsize': 12,  # X-axis tick label size
+        'ytick.labelsize': 12,  # Y-axis tick label size
+        'legend.fontsize': 12,  # Set legend font size
+        'legend.frameon': False  # Remove legend frame
+    }
+)
+
 
 # Load the depletion results
 results = dr.Results("depletion_results.h5")
@@ -28,12 +50,16 @@ time_steps_days = results.get_times()
 time_steps_months = time_steps_days / 30.4167 
 
 # Specify the nuclides to include in the resulting materials
-initial_nuclei = ["U235", "U238", "Pu239", "Th232", "U233"]
+initial_nuclei = ["Th232", "U238", "U235", "U233", "Pu239", "Pu240"]
 
-nuclide_to_plot = ["U235", "Th232", "U233"]
+nuclide_to_plot = ["Th232", "U238", "U235", "U233", "Pu239", "Pu240"]
 
-# Initialize dictionary to store normalized concentrations
-concentrations_normalized = {nuc: [] for nuc in initial_nuclei}
+nuclide_avarged = ["U238", "Th232", "U235"]
+
+nuclide_max = ["U233", "Pu239", "Pu240"]
+
+# Initialize dictionary to store percentual changes
+percentual_changes = {nuc: [] for nuc in initial_nuclei}
 
 # Iterate over all burnup steps
 for timei in time_steps_days:
@@ -57,40 +83,64 @@ for timei in time_steps_days:
         _, conc = results.get_atoms(mat=fuel_material, nuc=nuc)
         concentrations[nuc] = conc
 
-    # Calculate the initial total number of nuclei for normalization
-    if burnup_index == 0:
-        initial_C = sum(concentrations[nuc][0] for nuc in initial_nuclei)
+# Calculate percentual changes
+percentual_changes = {nuc: [] for nuc in initial_nuclei}
+total_initial_nuclei = 0
+for nuc in initial_nuclei:
+    total_initial_nuclei += concentrations[nuc][0]
 
-    # Normalize the concentrations with respect to the initial total number of nuclei
-    for nuc in initial_nuclei:
-        concentrations_normalized[nuc].append(concentrations[nuc][burnup_index] / initial_C)
+
+for nuc in initial_nuclei:
+    for i in range(1, len(concentrations[nuc])):
+        previous = concentrations[nuc][i-1]
+        current = concentrations[nuc][i]
+        if previous == 0:
+            change = 100* current / total_initial_nuclei  # Handle the case where the previous concentration is zero
+        else:
+            change = 100 * (current - previous) / total_initial_nuclei
+        percentual_changes[nuc].append(change)
+
+
 
 # Convert lists to numpy arrays for plotting
 for nuc in initial_nuclei:
-    concentrations_normalized[nuc] = 100 * np.array(concentrations_normalized[nuc])
+    percentual_changes[nuc] = np.array(percentual_changes[nuc])
 
 # Create a figure with subplots for each nuclide in nuclide_to_plot
 fig, axs = plt.subplots(len(nuclide_to_plot), 1, figsize=(8, 4 * len(nuclide_to_plot)), sharex=True)
 
-
 # Define the list of styles
-styles = ['dotted', '--', '-.', 'steps', '-' ]
+styles = ['dotted', '--', 'dashdot', ':' ]
 j = len(styles)
 
-# Plot the normalized concentrations in each subplot
+# Plot the percentual changes in each subplot
 for i, nuc in enumerate(nuclide_to_plot):
-    axs[i].plot(time_steps_months, concentrations_normalized[nuc], label=nuc, color='black', linestyle=styles[i % j])
-    axs[i].set_ylabel("Normalized Concentration [%]")
-    axs[i].legend()
+    axs[i].plot(time_steps_months[1:], percentual_changes[nuc], label=nuc, color='black', linestyle=styles[i % j])
+    if nuc in nuclide_avarged:
+        avareged = np.mean(percentual_changes[nuc])
+        axs[i].axhline(y=avareged, color='red', linestyle='--', label=f'Average: {avareged:.2e}%')
+    if nuc in nuclide_max:
+        max = np.max(percentual_changes[nuc])
+        axs[i].axhline(y=max, color='red', linestyle='--', label=f'Max: {max:.2e}%')
+
+    axs[i].set_ylabel("Percentual Change [%]")
+    if nuc == "Th232":
+        axs[i].legend(loc='upper center')
+    else:
+        axs[i].legend(loc='best')
 
 # Set the xlabel for the last subplot
 axs[-1].set_xlabel("Time [months]")
 
 # Add a title to the entire figure
-fig.suptitle("Concentrations of Fissionable Materials in a PWR Using Thorium Fuel", fontsize=12)
+fig.suptitle("Percentual Change in Concentrations of \nFissionable Materials Using Thorium Fuel", fontsize=12)
+
+#fig.suptitle("Percentual Change in Concentrations of \nFissionable Materials Using Uranium Fuel", fontsize=12)
 
 # Adjust the spacing between subplots
 plt.tight_layout()
 
 # Save the plot
-plt.savefig('../../Plots/concentration_th232_try1.png', dpi=600)
+plt.savefig('../../Plots/percentual_change_th232_test1.png', dpi=600)
+
+#plt.savefig('../../Plots/percentual_change_UO2_test1.png', dpi=600)
