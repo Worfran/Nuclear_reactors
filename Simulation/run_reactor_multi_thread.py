@@ -13,7 +13,7 @@ size = comm.Get_size()
 od.pool.USE_MULTIPROCESSING = False
 
 # Chain file of the simulation should be changed for different fuels (Th232)
-chain_file = "Data/chain_endfb80_pwr.xml"
+chain_file = "../../Data/chain_endfb80_pwr.xml"
 
 # Materials
 fuelElement = {
