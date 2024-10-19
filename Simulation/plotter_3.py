@@ -50,9 +50,14 @@ time_steps_days = results.get_times()
 time_steps_months = time_steps_days / 30.4167 
 
 # Specify the nuclides to include in the resulting materials
-initial_nuclei = ["Th232", "U238", "U235", "U233", "Pu239", "Pu240"]
+#initial_nuclei = ["Th232", "U238", "U235", "U233", "Pu239", "Pu240"]
 
-nuclide_to_plot = ["Th232", "U238", "U235", "U233", "Pu239", "Pu240"]
+initial_nuclei = ["U235", "U238", "Pu239", "Pu240"]
+
+#nuclide_to_plot = ["Th232", "U238", "U235", "U233", "Pu239", "Pu240"]
+
+nuclide_to_plot = ["U235", "U238", "Pu239", "Pu240"]
+
 
 nuclide_avarged = ["U238", "Th232", "U235"]
 
@@ -110,7 +115,7 @@ for nuc in initial_nuclei:
 fig, axs = plt.subplots(len(nuclide_to_plot), 1, figsize=(8, 4 * len(nuclide_to_plot)), sharex=True)
 
 # Define the list of styles
-styles = ['dotted', '--', 'dashdot', ':' ]
+styles = ['dotted', (0, (3, 1, 1, 1, 1, 1)), 'dashdot', ':' ]
 j = len(styles)
 
 # Plot the percentual changes in each subplot
@@ -118,10 +123,10 @@ for i, nuc in enumerate(nuclide_to_plot):
     axs[i].plot(time_steps_months[1:], percentual_changes[nuc], label=nuc, color='black', linestyle=styles[i % j])
     if nuc in nuclide_avarged:
         avareged = np.mean(percentual_changes[nuc])
-        axs[i].axhline(y=avareged, color='red', linestyle='--', label=f'Average: {avareged:.2e}%')
+        axs[i].axhline(y=avareged, color='red', linestyle='--', label=f'Average: {avareged:.2e}%', linewidth=1)
     if nuc in nuclide_max:
         max = np.max(percentual_changes[nuc])
-        axs[i].axhline(y=max, color='red', linestyle='--', label=f'Max: {max:.2e}%')
+        axs[i].axhline(y=max, color='red', linestyle='--', label=f'Max: {max:.2e}%', linewidth=1)
 
     axs[i].set_ylabel("Percentual Change [%]")
     if nuc == "Th232":
@@ -133,14 +138,15 @@ for i, nuc in enumerate(nuclide_to_plot):
 axs[-1].set_xlabel("Time [months]")
 
 # Add a title to the entire figure
-fig.suptitle("Percentual Change in Concentrations of \nFissionable Materials Using Thorium Fuel", fontsize=12)
+#fig.suptitle("Percentual Change in Concentrations of \nFissionable Materials Using Thorium Fuel", fontsize=12)
 
-#fig.suptitle("Percentual Change in Concentrations of \nFissionable Materials Using Uranium Fuel", fontsize=12)
+fig.suptitle("Percentual Change in Concentrations of \nFissionable Materials Using Uranium Fuel", fontsize=12)
 
 # Adjust the spacing between subplots
 plt.tight_layout()
 
 # Save the plot
-plt.savefig('../../Plots/percentual_change_th232_test1.png', dpi=600)
+#plt.savefig('../../Plots/percentual_change_th232_test1.png', dpi=600)
 
-#plt.savefig('../../Plots/percentual_change_UO2_test1.png', dpi=600)
+plt.savefig('../../Plots/percentual_change_UO2_test1.png', dpi=600)
+

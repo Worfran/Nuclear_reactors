@@ -3,17 +3,11 @@ import pwr_model_source as pwr
 import openmc.deplete as od
 import logging
 
-# Setup logging
-logging.basicConfig(level=logging.DEBUG, filename='run_reactor_multi_thread.log', filemode='w')
-logger = logging.getLogger()
 
-logger.debug("Initializing MPI")
 # Initialize MPI for the HPC
 comm = MPI.COMM_WORLD
 rank = comm.Get_rank()
 size = comm.Get_size()
-
-logger.debug(f"MPI initialized with rank {rank} and size {size}")
 
 # Configuration for HPC
 od.pool.USE_MULTIPROCESSING = False
@@ -42,27 +36,16 @@ num_steps = 10
 # Calculate the timestep for each step
 timestep = total_simulation_time / num_steps
 
-logger.debug("Creating integrator")
 # Create the integrator
 integrator = od.PredictorIntegrator(op, timesteps=[timestep] * num_steps, power=1.0e9)
 
-logger.debug("Starting depletion simulation")
 # Run the depletion simulation
-try:
-    if rank == 0:
-        integrator.integrate()
-except Exception as e:
-    logger.error(f"Rank {rank} encountered an error during integration: {e}")
+if rank == 0:
+    integrator.integrate()
 
-logger.debug("Saving results")
 # Save the results
-try:
-    if rank == 0:
-        results = od.ResultsList.from_hdf5("depletion_results.h5")
-except Exception as e:
-    logger.error(f"Rank {rank} encountered an error while saving results: {e}")
+if rank == 0:
+    results = od.ResultsList.from_hdf5("depletion_results.h5")
 
-logger.debug("Finalizing MPI")
 # Finalize MPI
 MPI.Finalize()
-logger.debug("MPI finalized")
