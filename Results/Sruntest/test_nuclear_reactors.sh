@@ -19,7 +19,7 @@
 # ################## Zona Carga de Módulos ############################################
 
 module load openmc
-export OPENMC_CROSS_SECTIONS="/hpcfs/home/fisica/fw.garcia/Data/endfb80/endfb-viii.0-hdf5/cross_sections.xml"
+export OPENMC_CROSS_SECTIONS="/hpcfs/home/fisica/fw.garcia/Data/endfb-viii.0-hdf5/cross_sections.xml"
 #export OPENMC_CROSS_SECTIONS="/hpcfs/home/fisica/fw.garcia/Data/jeff33/jeff-3.3-hdf5/cross_sections.xml"
 #export OPENMC_CROSS_SECTIONS="/hpcfs/home/fisica/fw.garcia/Data/cross_sections.xml"
 ########################################################################################
@@ -34,7 +34,7 @@ echo "Started at: $(/bin/date)" # info
 
 # código a correr
 #mpiexec python ../../Simulation/Simulator_test.py 
-python ../../Simulation/run_reactor_test.py
+python ../../Simulation/run_reactor_multi_thread.py
 
 echo "Finished at: $(/bin/date)" # info
 

@@ -1,0 +1,23 @@
+Traceback (most recent call last):
+  File "/hpcfs/home/fisica/fw.garcia/Programacion/Nuclear_reactors/Results/Sruntest/../../Simulation/run_reactor_multi_thread.py", line 25, in <module>
+    op = od.CoupledOperator(pwr.pwr_assembly(fuelElements=fuelElement), normalization_mode='source-rate', chain_file=chain_file)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/hpcfs/apps/miniforge3/envs/openmc-env/lib/python3.12/site-packages/openmc/deplete/coupled_operator.py", line 265, in __init__
+    super().__init__(
+  File "/hpcfs/apps/miniforge3/envs/openmc-env/lib/python3.12/site-packages/openmc/deplete/openmc_operator.py", line 123, in __init__
+    super().__init__(chain_file, fission_q, prev_results)
+  File "/hpcfs/apps/miniforge3/envs/openmc-env/lib/python3.12/site-packages/openmc/deplete/abc.py", line 99, in __init__
+    self.chain = Chain.from_xml(chain_file, fission_q)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/hpcfs/apps/miniforge3/envs/openmc-env/lib/python3.12/site-packages/openmc/deplete/chain.py", line 529, in from_xml
+    root = ET.parse(str(filename))
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "src/lxml/etree.pyx", line 3589, in lxml.etree.parse
+  File "src/lxml/parser.pxi", line 1958, in lxml.etree._parseDocument
+  File "src/lxml/parser.pxi", line 1984, in lxml.etree._parseDocumentFromURL
+  File "src/lxml/parser.pxi", line 1887, in lxml.etree._parseDocFromFile
+  File "src/lxml/parser.pxi", line 1200, in lxml.etree._BaseParser._parseDocFromFile
+  File "src/lxml/parser.pxi", line 633, in lxml.etree._ParserContext._handleParseResultDoc
+  File "src/lxml/parser.pxi", line 743, in lxml.etree._handleParseResult
+  File "src/lxml/parser.pxi", line 670, in lxml.etree._raiseParseError
+OSError: Error reading file 'Data/chain_endfb80_pwr.xml': failed to load external entity "Data/chain_endfb80_pwr.xml"

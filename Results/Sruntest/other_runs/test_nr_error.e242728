@@ -1,0 +1,4 @@
+  File "/hpcfs/home/fisica/fw.garcia/Programacion/Nuclear_reactors/Results/Sruntest/../../Simulation/muti_thread/run_reactor_multi_thread.py", line 2
+    from Nuclear_reactors/Simulation import pwr_model_source as pwr
+                         ^
+SyntaxError: invalid syntax

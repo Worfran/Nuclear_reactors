@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "/hpcfs/home/fisica/fw.garcia/Programacion/Nuclear_reactors/Results/Sruntest/../../Simulation/run_reactor_multi_thread.py", line 37, in <module>
+    if rank == 0:
+       ^^^^
+NameError: name 'rank' is not defined. Did you mean: 'range'?
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/hpcfs/home/fisica/fw.garcia/Programacion/Nuclear_reactors/Results/Sruntest/../../Simulation/run_reactor_multi_thread.py", line 40, in <module>
+    logger.error(f"Rank {rank} encountered an error during integration: {e}")
+    ^^^^^^
+NameError: name 'logger' is not defined
