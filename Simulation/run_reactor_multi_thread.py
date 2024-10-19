@@ -6,8 +6,6 @@ import logging
 
 # Initialize MPI for the HPC
 comm = MPI.COMM_WORLD
-rank = comm.Get_rank()
-size = comm.Get_size()
 
 # Configuration for HPC
 od.pool.USE_MULTIPROCESSING = False
@@ -40,12 +38,10 @@ timestep = total_simulation_time / num_steps
 integrator = od.PredictorIntegrator(op, timesteps=[timestep] * num_steps, power=1.0e9)
 
 # Run the depletion simulation
-if rank == 0:
-    integrator.integrate()
+integrator.integrate()
 
-# Save the results
-if rank == 0:
-    results = od.ResultsList.from_hdf5("depletion_results.h5")
+
+results = od.ResultsList.from_hdf5("depletion_results.h5")
 
 # Finalize MPI
 MPI.Finalize()
