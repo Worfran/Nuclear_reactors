@@ -23,7 +23,7 @@ fuelElement = {
     'O16': 4.5829e-2  # + 2.0e-3
 }
 
-logger.debug("Creating depletion operator")
+
 # Create a depletion operator
 op = od.CoupledOperator(pwr.pwr_assembly(fuelElements=fuelElement), normalization_mode='source-rate', chain_file=chain_file)
 
