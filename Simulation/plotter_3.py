@@ -50,18 +50,19 @@ time_steps_days = results.get_times()
 time_steps_months = time_steps_days / 30.4167 
 
 # Specify the nuclides to include in the resulting materials
-#initial_nuclei = ["Th232", "U238", "U235", "U233", "Pu239", "Pu240"]
 
-initial_nuclei = ["U235", "U238", "Pu239", "Pu240"]
+initial_nuclei = ["Th232", "U238", "U235", "U233", "U232","Pu239", "Pu240"]
 
-#nuclide_to_plot = ["Th232", "U238", "U235", "U233", "Pu239", "Pu240"]
+#initial_nuclei = ["U235", "U238", "Pu239", "Pu240"]
 
-nuclide_to_plot = ["U235", "U238", "Pu239", "Pu240"]
+nuclide_to_plot = ["Th232", "U238", "U235", "U233", "U232","Pu239"]
+
+#nuclide_to_plot = ["U235", "U238", "Pu239", "Pu240"]
 
 
 nuclide_avarged = ["U238", "Th232", "U235"]
 
-nuclide_max = ["U233", "Pu239", "Pu240"]
+nuclide_max = ["U233", "Pu239", "Pu240", "U232"]
 
 # Initialize dictionary to store percentual changes
 percentual_changes = {nuc: [] for nuc in initial_nuclei}
@@ -146,7 +147,7 @@ fig.suptitle("Percentual Change in Concentrations of \nFissionable Materials Usi
 plt.tight_layout()
 
 # Save the plot
-#plt.savefig('../../Plots/percentual_change_th232_test1.png', dpi=600)
+plt.savefig('../../Plots/percentual_change_th232_test1.png', dpi=600)
 
-plt.savefig('../../Plots/percentual_change_UO2_test1.png', dpi=600)
+#plt.savefig('../../Plots/percentual_change_UO2_test1.png', dpi=600)
 
