@@ -14,12 +14,12 @@ chain_file = "../../Data/chain_endfb80_pwr.xml"
 #}
 
 #materialsTh232
-fuelElement ={
-    'U234': 4.4843e-6,
-    'U235': 5.5815e-4,
-    'U238': 2.2408e-2,
-    'Th232': 2.2408e-2,
-    'O16': 4.5829e-2 + 4.0e-2
+fuelElement = {
+    'U234': 4.4843e-6 * 0.9,
+    'U235': 5.5815e-4 * 0.9,
+    'U238': 2.2408e-2 * 0.9,
+    'Th232': 2.2408e-2 * 0.1,
+    'O16': (4.5829e-2 + 4.0e-2) * 0.9 + (4.5829e-2 + 4.0e-2) * 0.1
 }
 
 # Create a depletion operator
