@@ -2,6 +2,8 @@ import matplotlib.pyplot as plt
 import openmc.deplete.results as dr
 import numpy as np
 import seaborn as sns
+import matplotlib.ticker as ticker
+
 
 """
 Ploting settings 1 
@@ -53,16 +55,16 @@ time_steps_months = time_steps_days / 30.4167
 
 #initial_nuclei = ["Th232", "U238", "U235"]
 
-initial_nuclei = ["U233", "Th232"]
+initial_nuclei = ["Pu239", "Th232"]
 
 #nuclide_to_plot = ["Th232", "U238", "U235", "U233", "U232","Pu239"]
 
-nuclide_to_plot = ["U233", "Th232", "U232"]
+nuclide_to_plot = ["Pu239","U233", "Th232", "U232"]
 
 
-nuclide_avarged = ["U238", "Th232", "U235", "U232" ]
+nuclide_avarged = ["Pu239","U238", "Th232", "U235"]
 
-nuclide_max = ["U233","Pu239", "Pu240"]
+nuclide_max = ["U233", "Pu240", "U232"]
 
 # Initialize dictionary to store percentual changes
 percentual_changes = {nuc: [] for nuc in initial_nuclei}
@@ -137,20 +139,22 @@ for i, nuc in enumerate(nuclide_to_plot):
     else:
         axs[i].legend(loc='best')
     """
-
+for ax in axs:
+    ax.yaxis.set_major_formatter(ticker.ScalarFormatter(useOffset=False))
+    
 # Set the xlabel for the last subplot
 axs[-1].set_xlabel("Time [months]")
 
 # Add a title to the entire figure
 #fig.suptitle("Percentual Change in Concentrations of \nFissionable Materials Using Thorium Fuel", fontsize=12)
 
-fig.suptitle("Concentrations change in time of Fuel Isotopes \n Thorium Oxide with 5% U233 addition", fontsize=12)
+fig.suptitle("Concentrations change in time of Fuel Isotopes \n Thorium Oxide with 10% Pu239 addition", fontsize=12)
 
 # Adjust the spacing between subplots
 plt.tight_layout()
 
 # Save the plot
-plt.savefig('../../Plots/percentual_change_th232_U233_5.png', dpi=600)
+plt.savefig('../../Plots/percentual_change_th232_Pu239.png', dpi=600)
 
 #plt.savefig('../../Plots/percentual_change_UO2_test1.png', dpi=600)
 

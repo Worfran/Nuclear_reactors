@@ -37,11 +37,11 @@ chain_file = "../../Data/chain_endfb80_pwr.xml"
 #}
 
 #materialsTh232-Pu239 10%
-#fuelElement = {
-#    'Pu239': 2.5408e-3,
-#    'Th232': 2.2408e-2,
-#    'O16': (2.2408e-2 + 2.2408e-3) * 2
-#}
+fuelElement = {
+    'Pu239': 1.5204e-3,
+    'Th232': 1.1204e-2,
+    'O16': (1.1204e-2 + 1.5204e-3) * 2
+}
 
 # Create a depletion operator
 op = od.CoupledOperator(pwr.pwr_assembly(fuelElements=fuelElement, threads=6), normalization_mode='source-rate', chain_file=chain_file)
