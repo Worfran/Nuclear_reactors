@@ -14,13 +14,34 @@ chain_file = "../../Data/chain_endfb80_pwr.xml"
 #}
 
 #materialsTh232
-fuelElement = {
-    'U234': 4.4843e-6 * 0.9,
-    'U235': 5.5815e-4 * 0.9,
-    'U238': 2.2408e-2 * 0.9,
-    'Th232': 2.2408e-2 * 0.1,
-    'O16': (4.5829e-2 + 4.0e-2) * 0.9 + (4.5829e-2 + 4.0e-2) * 0.1
-}
+#fuelElement = {
+#    'U234': 4.4843e-6 * 0.5,
+#    'U235': 5.5815e-4 * 0.5,
+#    'U238': 2.2408e-2 * 0.5,
+#    'Th232': 2.2408e-2 * 0.5,
+#    'O16': (2.2408e-2 * 2 + 5.5815e-4 * 2 + 4.4843e-6 * 2) * 0.5 + (2.2408e-2 * 2 ) * 0.5
+#}
+
+#materialsTh232-U233 5%
+#fuelElement = {
+#    'U233': 2.2408e-3,
+#    'Th232': 4.4816e-2,
+#    'O16': (2.2408e-2 + 2.2408e-3) * 2
+#}
+
+#materialsTh232-U233 10%
+#fuelElement = {
+#    'U233': 4.9816e-3,
+#    'Th232': 4.4816e-2,
+#    'O16': (2.2408e-2 + 2.2408e-3) * 2
+#}
+
+#materialsTh232-Pu239 10%
+#fuelElement = {
+#    'Pu239': 2.5408e-3,
+#    'Th232': 2.2408e-2,
+#    'O16': (2.2408e-2 + 2.2408e-3) * 2
+#}
 
 # Create a depletion operator
 op = od.CoupledOperator(pwr.pwr_assembly(fuelElements=fuelElement, threads=6), normalization_mode='source-rate', chain_file=chain_file)

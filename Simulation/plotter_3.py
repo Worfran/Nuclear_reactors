@@ -51,18 +51,18 @@ time_steps_months = time_steps_days / 30.4167
 
 # Specify the nuclides to include in the resulting materials
 
-initial_nuclei = ["Th232", "U238", "U235", "U233", "U232","Pu239", "Pu240"]
+#initial_nuclei = ["Th232", "U238", "U235"]
 
-#initial_nuclei = ["U235", "U238", "Pu239", "Pu240"]
+initial_nuclei = ["U233", "Th232"]
 
-nuclide_to_plot = ["Th232", "U238", "U235", "U233", "U232","Pu239"]
+#nuclide_to_plot = ["Th232", "U238", "U235", "U233", "U232","Pu239"]
 
-#nuclide_to_plot = ["U235", "U238", "Pu239", "Pu240"]
+nuclide_to_plot = ["U233", "Th232", "U232"]
 
 
-nuclide_avarged = ["U238", "Th232", "U235"]
+nuclide_avarged = ["U238", "Th232", "U235", "U232" ]
 
-nuclide_max = ["U233", "Pu239", "Pu240", "U232"]
+nuclide_max = ["U233","Pu239", "Pu240"]
 
 # Initialize dictionary to store percentual changes
 percentual_changes = {nuc: [] for nuc in initial_nuclei}
@@ -85,18 +85,18 @@ for timei in time_steps_days:
 
     # Get the concentrations of the isotopes for the fuel material
     concentrations = {}
-    for nuc in initial_nuclei:
+    for nuc in nuclide_to_plot:
         _, conc = results.get_atoms(mat=fuel_material, nuc=nuc)
         concentrations[nuc] = conc
 
 # Calculate percentual changes
-percentual_changes = {nuc: [] for nuc in initial_nuclei}
+percentual_changes = {nuc: [] for nuc in nuclide_to_plot}
 total_initial_nuclei = 0
 for nuc in initial_nuclei:
     total_initial_nuclei += concentrations[nuc][0]
 
 
-for nuc in initial_nuclei:
+for nuc in nuclide_to_plot:
     for i in range(1, len(concentrations[nuc])):
         previous = concentrations[nuc][i-1]
         current = concentrations[nuc][i]
@@ -109,7 +109,7 @@ for nuc in initial_nuclei:
 
 
 # Convert lists to numpy arrays for plotting
-for nuc in initial_nuclei:
+for nuc in nuclide_to_plot:
     percentual_changes[nuc] = np.array(percentual_changes[nuc])
 
 # Create a figure with subplots for each nuclide in nuclide_to_plot
@@ -130,10 +130,13 @@ for i, nuc in enumerate(nuclide_to_plot):
         axs[i].axhline(y=max, color='red', linestyle='--', label=f'Max: {max:.2e}%', linewidth=1)
 
     axs[i].set_ylabel("Percentual Change [%]")
+    axs[i].legend(loc='best')
+    """
     if nuc == "Th232":
         axs[i].legend(loc='upper center')
     else:
         axs[i].legend(loc='best')
+    """
 
 # Set the xlabel for the last subplot
 axs[-1].set_xlabel("Time [months]")
@@ -141,13 +144,13 @@ axs[-1].set_xlabel("Time [months]")
 # Add a title to the entire figure
 #fig.suptitle("Percentual Change in Concentrations of \nFissionable Materials Using Thorium Fuel", fontsize=12)
 
-fig.suptitle("Percentual Change in Concentrations of \nFissionable Materials Using Uranium Fuel", fontsize=12)
+fig.suptitle("Concentrations change in time of Fuel Isotopes \n Thorium Oxide with 5% U233 addition", fontsize=12)
 
 # Adjust the spacing between subplots
 plt.tight_layout()
 
 # Save the plot
-plt.savefig('../../Plots/percentual_change_th232_test1.png', dpi=600)
+plt.savefig('../../Plots/percentual_change_th232_U233_5.png', dpi=600)
 
 #plt.savefig('../../Plots/percentual_change_UO2_test1.png', dpi=600)
 

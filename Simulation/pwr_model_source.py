@@ -74,7 +74,7 @@ def pwr_assembly(fuelElements, maxEnergy=20e6, threads=1, particles=1000):
 
     # Compute the volume of each material
     fuel_volume = np.pi * fuel_or.r**2
-    fuel.volume = fuel_volume
+    fuel.volume = fuel_volume *17 ** 2
 
     # Create boundary planes to surround the geometry
     pitch = 21.42
