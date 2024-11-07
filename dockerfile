@@ -10,5 +10,3 @@ COPY Data Data
 COPY Results Results
 
 
-CMD [ "python", "Simulation/Simulator.py", "Simulation/Ploter2.py" ]
-
