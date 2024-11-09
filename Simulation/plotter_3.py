@@ -53,18 +53,21 @@ time_steps_months = time_steps_days / 30.4167
 
 # Specify the nuclides to include in the resulting materials
 
-#initial_nuclei = ["Th232", "U238", "U235"]
+#initial_nuclei = ["U238", "U235",]
 
-initial_nuclei = ["Pu239", "Th232"]
+initial_nuclei = ["Th232", "U238", "U235",]
 
-#nuclide_to_plot = ["Th232", "U238", "U235", "U233", "U232","Pu239"]
+#initial_nuclei = ["Pu239", "Th232"]
 
-nuclide_to_plot = ["Pu239","U233", "Th232", "U232"]
+nuclide_to_plot = ["Th232", "U238", "U235", "U233", "U232","Pu239"]
 
+#nuclide_to_plot = ["Th232", "U233", "U232",]
 
-nuclide_avarged = ["Pu239","U238", "Th232", "U235"]
+#nuclide_to_plot = ["U235", "U238", "Pu239", "Pu240",]
 
-nuclide_max = ["U233", "Pu240", "U232"]
+nuclide_avarged = ["U238", "Th232", "U235", ]
+
+nuclide_max = [ "U233", "Pu240", "Pu239", "U232",]
 
 # Initialize dictionary to store percentual changes
 percentual_changes = {nuc: [] for nuc in initial_nuclei}
@@ -115,7 +118,12 @@ for nuc in nuclide_to_plot:
     percentual_changes[nuc] = np.array(percentual_changes[nuc])
 
 # Create a figure with subplots for each nuclide in nuclide_to_plot
-fig, axs = plt.subplots(len(nuclide_to_plot), 1, figsize=(8, 4 * len(nuclide_to_plot)), sharex=True)
+#fig, axs = plt.subplots(len(nuclide_to_plot), 1, figsize=(8, 4 * len(nuclide_to_plot)), sharex=True)
+
+
+# Create a figure with a 2x3 grid of subplots
+fig, axs = plt.subplots(2, 3, figsize=(15, 10), sharex=True)
+axs = axs.flatten()
 
 # Define the list of styles
 styles = ['dotted', (0, (3, 1, 1, 1, 1, 1)), 'dashdot', ':' ]
@@ -143,18 +151,23 @@ for ax in axs:
     ax.yaxis.set_major_formatter(ticker.ScalarFormatter(useOffset=False))
     
 # Set the xlabel for the last subplot
-axs[-1].set_xlabel("Time [months]")
+#axs[-1].set_xlabel("Time [months]")
+
+# Set the xlabel for the three plots in the bottom part
+for ax in axs[-3:]:
+    ax.set_xlabel("Time [months]")
+
 
 # Add a title to the entire figure
 #fig.suptitle("Percentual Change in Concentrations of \nFissionable Materials Using Thorium Fuel", fontsize=12)
 
-fig.suptitle("Concentrations change in time of Fuel Isotopes \n Thorium Oxide with 10% Pu239 addition", fontsize=12)
+fig.suptitle("Concentrations change in time of Fuel Isotopes \n Uranium Oxide with 10% Th232 addition", fontsize=16)
 
 # Adjust the spacing between subplots
 plt.tight_layout()
 
 # Save the plot
-plt.savefig('../../Plots/percentual_change_th232_Pu239.png', dpi=600)
+plt.savefig('../../Plots/percentual_change_th232_con_10.pdf', dpi=1200)
 
 #plt.savefig('../../Plots/percentual_change_UO2_test1.png', dpi=600)
 
